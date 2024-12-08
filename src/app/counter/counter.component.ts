@@ -9,7 +9,8 @@ export class CounterComponent {
   counter = 0;
 
   increment() {
-    const x = 1;
+    // const s = 'M'
+    const x = 1
     if (x == 1) {
       console.log("1")
     }
