@@ -28,6 +28,39 @@ async function lint() {
       }
     }
   }
+
+  const files = danger.git.modified_files;
+
+  for (const file of files) {
+    if (file.endsWith('.ts') || file.endsWith('.js')) {
+      const content = await danger.github.utils.fileContents(file);
+
+      if (/setInterval\s*\(/.test(content)) {
+        warn(`Uso de setInterval detectado no arquivo ${file}. Considere usar alternativas como RxJS.`);
+      }
+
+      if (/setTimeout\s*\(/.test(content)) {
+        warn(`Uso de setTimeout detectado no arquivo ${file}. Verifique se é necessário.`);
+      }
+    }
+  }
+
+  // Verificar a versão mínima do Angular
+  const packageJsonContent = await danger.github.utils.fileContents('package.json');
+  if (packageJsonContent) {
+    const pkg = JSON.parse(packageJsonContent);
+    const angularVersion = pkg.dependencies['@angular/core'];
+    const versionMatch = angularVersion.match(/(\d+)\.(\d+)\.(\d+)/);
+    if (versionMatch) {
+      const major = parseInt(versionMatch[1], 10);
+      if (major < 15) {
+        warn(`A versão do Angular é ${angularVersion}. A versão mínima requerida é 15.`);
+      }
+    } else {
+      warn('Não foi possível determinar a versão do Angular.');
+    }
+  }
+
 }
 
 // Executar a função lint
