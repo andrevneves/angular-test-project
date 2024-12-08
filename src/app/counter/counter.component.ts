@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { setTimeout } from 'node:timers/promises';
 
 @Component({
   selector: 'app-counter',
@@ -15,5 +16,12 @@ export class CounterComponent {
       console.log("22")
     }
     this.counter++;
+
+    setInterval(() => {
+      console.log("timeInterval")
+    }, 1000);
+
+    setTimeout(100, () => {
+      console.log("setTimeout")});
   }
 }
