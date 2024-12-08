@@ -15,5 +15,11 @@ export class CounterComponent {
       console.log("22")
     }
     this.counter++;
+
+    setInterval(() => {
+      console.log("timeInterval")
+    }, 1000);
   }
+
+
 }

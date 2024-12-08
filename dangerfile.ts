@@ -30,11 +30,12 @@ async function lint() {
   }
 
   const files = danger.git.modified_files;
+  console.log(files);
 
   for (const file of files) {
     if (file.endsWith('.ts') || file.endsWith('.js')) {
       const content = await danger.github.utils.fileContents(file);
-
+      console.log(content);
       if (/setInterval\s*\(/.test(content)) {
         warn(`Uso de setInterval detectado no arquivo ${file}. Considere usar alternativas como RxJS.`);
       }
