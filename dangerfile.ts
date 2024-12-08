@@ -53,7 +53,7 @@ async function lint() {
     const angularVersion = pkg.dependencies['@angular/core'];
     const versionMatch = angularVersion.match(/(\d+)\.(\d+)\.(\d+)/);
     console.log("versionMatch:",versionMatch)
-    if (versionMatch) {
+    if (versionMatch && versionMatch.length >= 2) {
       const major = parseInt(versionMatch[1], 10);
       console.log("major:",major)
       if (major < 33) {
