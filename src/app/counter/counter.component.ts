@@ -11,7 +11,7 @@ export class CounterComponent {
   increment() {
     // const s = 'M'
     const x = 1
-    if (x = 1) {
+    if (x == 1) {
       console.log("1")
     }
     this.counter++;
