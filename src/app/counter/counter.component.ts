@@ -12,7 +12,7 @@ export class CounterComponent {
     // const s = 'M'
     const x = 1
     if (x == 1) {
-      console.log("1")
+      console.log("22")
     }
     this.counter++;
   }
