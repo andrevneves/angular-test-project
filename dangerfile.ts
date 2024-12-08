@@ -52,10 +52,12 @@ async function lint() {
     const pkg = JSON.parse(packageJsonContent);
     const angularVersion = pkg.dependencies['@angular/core'];
     const versionMatch = angularVersion.match(/(\d+)\.(\d+)\.(\d+)/);
+    console.log("versionMatch:",versionMatch)
     if (versionMatch) {
       const major = parseInt(versionMatch[1], 10);
-      if (major < 15) {
-        warn(`A versão do Angular é ${angularVersion}. A versão mínima requerida é 15.`);
+      console.log("major:",major)
+      if (major < 33) {
+        warn(`A versão do Angular é ${angularVersion}. A versão mínima requerida é 33.`);
       }
     } else {
       warn('Não foi possível determinar a versão do Angular.');
