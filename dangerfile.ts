@@ -78,13 +78,13 @@ async function lint() {
         if (coercedVersion) {
           // Verificar se a versão é menor que 33.0.0
           if (semver.lt(coercedVersion, '33.0.0')) {
-            warn(`A versão do Angular é ${angularVersion}. A versão mínima requerida é 33.`);
+            warn(`SemVer: A versão do Angular é ${angularVersion}. A versão mínima requerida é 33.`);
           }
         } else {
-          warn('Não foi possível determinar a versão do Angular usando semver.');
+          warn('SemVer: Não foi possível determinar a versão do Angular usando semver.');
         }
       } else {
-        warn('Não foi encontrada a dependência @angular/core no package.json.');
+        warn('SemVer: Não foi encontrada a dependência @angular/core no package.json.');
       }
     }
 }
