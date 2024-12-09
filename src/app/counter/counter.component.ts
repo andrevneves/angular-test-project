@@ -26,3 +26,5 @@ export class CounterComponent {
 
   // new comment
 }
+
+console.log("test 1")
