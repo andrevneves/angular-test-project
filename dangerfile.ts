@@ -65,7 +65,7 @@ async function lint() {
     }
   }
 
-    // Verificar a versão mínima do Angular utilizando semver
+    // Verificar a versão mínima do Angular utilizando semver npm
     // const packageJsonContent = await danger.github.utils.fileContents('package.json');
     // if (packageJsonContent) {
     //   const pkg = JSON.parse(packageJsonContent);
