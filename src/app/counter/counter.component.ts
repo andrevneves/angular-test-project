@@ -23,4 +23,6 @@ export class CounterComponent {
     setTimeout(100, () => {
       console.log("setTimeout")});
   }
+
+  // new comment
 }
